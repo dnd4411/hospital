@@ -1,0 +1,38 @@
+
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <link href='{% static "./home.css" %}' rel='stylesheet' type='text/css'>
+    <link href='{% static "./signup.css" %}' rel='stylesheet' type='text/css'>
+</head>
+<body id="doct">
+    <nav class="navbar navbar-light bg-light" id="navbar" >
+      
+        <div class="container-fluid ms-5" >
+          <a class="navbar-brand h4 " >Life Hospital</a>
+         
+          {% if user.is_authenticated %}
+          <p class=" text_c h6">Welcome {{user.first_name}}</p>
+          <a href="{% url 'logout'  %}" target="_blank" rel="noopener noreferrer" class="btn btn-outline-success">Logout</a>
+      {% else %}
+          <!-- Do something which you want to do with unauthenticated user -->
+     
+
+
+          <a href="{% url 'signup'  %}" target="_blank" rel="noopener noreferrer" class="btn btn-outline-success">Make an appointment</a>
+          {% endif %}
+        </div>
+      </nav>
+      <div class="mt-5 p-5 bg-primary text-white rounded ms-5 me-5">
+        <h1>Welcome Docter in life  Hospital</h1>
+        <p>"It is health that is real wealth and not pieces of gold and silver." — Mahatma Gandhi</p>
+      </div>
+</body>
+</html>
